@@ -145,7 +145,7 @@ export default {
   border: none;
   color: #FFFFFF;
   text-align: right;
-  padding: 0.6em;
+  padding: 1.4em 0.6em;
 }
 .zero {
   grid-row: 5 / 5;
