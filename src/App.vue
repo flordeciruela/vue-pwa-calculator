@@ -25,16 +25,15 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
-
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
-
 body {
   margin: 0;
-  background-color: gray;
+  background: rgb(94, 94, 94);
+  min-height: 100vh;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -43,22 +42,23 @@ body {
   color: #FFFFFF;
 }
 header {
-  margin: 0;
-  padding: 0 16px 0 24px;
   color: #FFFFFF;
   text-align: center;
+  width: 280px;
+  margin: 0 auto;
   h1 {
     display: block;
     position: relative;
-    font-size: 40px;
+    font-size: 25px;
     line-height: 1;
     font-weight: 400;
     box-sizing: border-box;
-    padding-top: 50px;
+    padding-top: 60px;
+    text-align: left;
   }
 }
 main {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>

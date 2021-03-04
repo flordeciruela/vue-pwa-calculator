@@ -1,7 +1,7 @@
 <template>
     <div class="calculator" onselectstart='return false'>
-      <input type="text" class="result" v-bind:value="result" disabled/>
-      <div class="wrapper-grid">
+      <div class="result">{{result}}</div>
+      <div class="calculator-wrapper">
         <div @click="reset()" class='btn'>C</div>
         <div @click="sign()" class='btn'>+/-</div>
         <div @click="percent()" class='btn'>%</div>
@@ -18,7 +18,7 @@
         <div @click="add(2)" class='btn'>2</div>
         <div @click="add(3)" class='btn'>3</div>
         <div @click="sum()" class='btn operator'>+</div>
-        <div @click='add(0)' class='btn zero'>0</div>
+        <div @click='add(0)' class='btn btn-zero'>0</div>
         <div @click='decimalDot()' class='btn'>.</div>
         <div @click='calculate()' class='btn operator'>=</div>
       </div>
@@ -110,22 +110,21 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .calculator {
-  box-shadow:inset 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 11px 22px -4px rgba(0,0,0,0.38);
   background-image: linear-gradient( -30deg, rgb(239,80,80) 0%, #9C27B0 100%);
   background-image: -moz-linear-gradient( -30deg, rgb(239,80,80) 0%, #9C27B0 100%);
   background-image: -webkit-linear-gradient( -30deg, rgb(239,80,80) 0%, #9C27B0 100%);
   background-image: -ms-linear-gradient( -30deg, rgb(239,80,80) 0%, #9C27B0 100%);
   margin: 0 auto;
-  width: 300px;
-}
-.wrapper-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  align-items: center;
+  width: 280px;
+  &-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    align-items: center;
+  }
 }
 .btn {
   height: 60px;
@@ -134,7 +133,19 @@ export default {
   cursor: pointer;
   padding: 1em;
   &:hover {
-    background: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2);
+  }
+  &-zero {
+    grid-row: 5 / 5;
+    grid-column: 1 / 3;
+  }
+  @media (hover: none) {
+    &:hover {
+      background-color: transparent;
+    }
+    &:active {
+      background-color: rgba(255,255,255,0.2);
+    }
   }
 }
 .result {
@@ -146,9 +157,7 @@ export default {
   color: #FFFFFF;
   text-align: right;
   padding: 1.4em 0.6em;
-}
-.zero {
-  grid-row: 5 / 5;
-  grid-column: 1 / 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
