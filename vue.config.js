@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/vue-pwa-calculator/'
+  publicPath: '/vue-pwa-calculator/',
 }
